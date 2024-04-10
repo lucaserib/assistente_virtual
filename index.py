@@ -2,6 +2,8 @@ import speech_recognition as sr
 import re
 import pyttsx3
 import os
+import subprocess
+import webbrowser
 
 nome = ''
 
@@ -34,7 +36,22 @@ while(True):
                 engine.runAndWait()
 
             elif re.search(r'\b' + 'Abrir navegador' + r'\b', frase):
+                engine.say('Abrindo navegador')
+                engine.runAndWait()
                 os.system('start chrome')
+
+            elif re.search(r'\b' + 'Abrir YouTube' + r'\b', frase):
+                engine.say('Abrindo youtube')
+                engine.runAndWait()
+                webbrowser.open("https://www.youtube.com")
+            
+            elif re.search(r'\b' + 'Abrir Spotify' + r'\b', frase):
+                engine.say('Abrindo Spotify')
+                engine.runAndWait()
+                os.system('start C:\\Users\\lucas\\AppData\\Roaming\\Spotify\\Spotify.exe')
+
+
+            
 
 
             print('Você falou: '+frase)
